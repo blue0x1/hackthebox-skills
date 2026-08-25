@@ -40,6 +40,42 @@ nmap -Pn -sC -sV -p 53,88,135,139,389,445,464,636,1433,3268,3269,5985,5986,9389 
 
 Check clock skew before Kerberos. If the lab requires a hosts-file entry, add only the named lab hosts and record the change.
 
+## Windows and AD Attack-Surface Catalog
+
+Use this catalog to decide what to enumerate next. It is not permission to perform writes, relay, coercion, replication, or secrets extraction. Each candidate path needs an observed edge, a narrow target, and an approval record for high-impact actions.
+
+| Area | Evidence to collect | Safe first question |
+| --- | --- | --- |
+| Domain basics | Domain SID, DNS names, DCs, trusts, sites, time source | Which identity and naming context is active? |
+| Users and groups | Memberships, descriptions, admin groups, nested groups | Which groups affect the current objective? |
+| Computers | OS, SPNs, delegation, local admin edges, sessions | Which hosts are in scope and reachable? |
+| SMB and shares | Share list, permissions, signing, relevant filenames | Is there scoped readable configuration evidence? |
+| LDAP | Naming contexts, ACLs, GPOs, SPNs, delegation flags | What object relationship supports the next hypothesis? |
+| Kerberos | Realm, SPNs, ticket cache, encryption support, clock skew | Can the supplied identity obtain normal service tickets? |
+| WinRM/RDP | Logon rights, remote management groups, TLS state | Can the account run a harmless identity check? |
+| MSSQL | Server identity, roles, linked servers, databases | What metadata is readable with the supplied login? |
+| AD CS | CAs, templates, EKUs, enrollment rights, SAN rules | Which templates are readable and relevant? |
+| GPO | Links, security filtering, script paths, preferences | Which policy applies to the scoped host or user? |
+| ACLs | Owner, GenericAll, WriteDACL, WriteOwner, reset rights | Which exact object and attribute are affected? |
+| Delegation | Unconstrained, constrained, RBCD, protocol transition | Which service account and host relationship is observed? |
+| Credentials | Source path, account context, scope, validation target | Is one narrow validation necessary and authorized? |
+| Replication | DC role, rights, naming context | Is replication explicitly part of the lab objective? |
+
+## Common AD Path Families
+
+Keep these as graph patterns rather than automatic actions:
+
+- Kerberoasting and AS-REP roasting: identify SPNs or pre-auth settings, then require scope and rate limits before requesting or testing material.
+- Group Policy Preferences and deployment files: inspect only scoped readable paths, hash artifacts, and redact secrets.
+- Credentials in shares, scripts, descriptions, attributes, registry exports, backup files, and deployment manifests: classify before use and validate once against the relevant service only.
+- Local administrator paths: prove group or session evidence before remote login attempts.
+- Object ACL paths: record the principal, target object, attribute, effective right, intended effect, and rollback plan before any write.
+- GPO control paths: avoid changing links, scripts, scheduled tasks, or group membership without explicit approval.
+- Delegation paths: separate read-only discovery from ticket requests, relay, coercion, or service impersonation.
+- AD CS paths: verify template configuration, enrollment rights, EKUs, subject rules, approval requirements, and mapping behavior before any certificate request.
+- MSSQL paths: distinguish metadata access, database impersonation, linked servers, and OS command execution features.
+- Trust and forest paths: record trust direction and transitivity; do not cross forests or subnets without explicit scope.
+
 ## SMB and File Services
 
 Start with anonymous or supplied-credential share enumeration where permitted. Record share names, access level, signing, server and domain names, and only the relevant directory paths. Download named artifacts one at a time and hash them.
@@ -61,6 +97,20 @@ ldapsearch -x -H ldap://<dc> -D '<user>@<domain>' -W \
 ```
 
 For Kerberos-bound LDAP, establish realm configuration and hostname resolution before querying. Prefer JSON or another machine-readable format when the local tool supports it, but preserve the raw output.
+
+## BloodHound-Style Graph Analysis
+
+Graph collection can be noisy and sensitive. Use it only when authorized, scope the collection method, and preserve raw output. Prefer the smallest collector profile needed for the question, such as object properties before session or local-admin collection. Do not collect across unrelated domains, trusts, or hosts.
+
+When analyzing a graph, write down:
+
+- Start principal and proof of control.
+- Target principal, group, host, CA, or service.
+- Edge type and exact evidence.
+- Whether the edge is read-only, authentication, write, coercion, relay, or secrets-related.
+- Required approval and cleanup if the path modifies state.
+
+Reject paths that depend on unverified sessions, stale edges, out-of-scope hosts, or assumptions about privileges.
 
 ## Kerberos
 
@@ -121,6 +171,15 @@ Treat relay, coercion, ticket capture, delegation abuse, and password changes as
 Inventory certificate authorities, templates, enrollment permissions, EKUs, subject or SAN rules, manager approval, and mapping behavior. Separate read-only certificate inventory from policy changes or certificate requests. Protect PFX files, private keys, and Kerberos caches.
 
 Before a policy or mapping change, capture the original state, use dry-run support if available, save rollback information, and confirm the exact object and attribute. Verify the resulting identity mapping with a minimal, in-scope authentication check, then remove temporary material.
+
+AD CS triage should cover:
+
+- CA host, web enrollment endpoints, RPC reachability, and template publication.
+- Template enrollment rights, auto-enrollment, manager approval, authorized signatures, EKUs, key usage, exportability, subject name controls, SAN controls, and validity period.
+- Mapping behavior, including UPN, DNS, SID extension, and strong certificate binding assumptions.
+- Relay-sensitive endpoints only as a documented risk unless relay is explicitly approved for the lab.
+
+Do not request certificates for privileged users, machine accounts, or alternate identities unless that request is the narrow approved proof.
 
 ## GPO, ACL, and Directory Writes
 

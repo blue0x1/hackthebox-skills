@@ -11,6 +11,8 @@ This repository contains original methodology and user-supplied nimux material. 
 | Challenge categories, instances, and file workflow | [How to Play Challenges](https://help.hackthebox.com/en/articles/5185436-how-to-play-challenges) |
 | Sherlock artifact handling and playing modes | [How to Play Sherlocks](https://help.hackthebox.com/en/articles/8570249-how-to-play-sherlocks) |
 | ProLab network and entry-point workflow | [How to Play Pro Labs](https://help.hackthebox.com/en/articles/5185470-how-to-play-pro-labs) |
+| Windows privilege escalation topic coverage | [Windows Privilege Escalation](https://academy.hackthebox.com/course/preview/windows-privilege-escalation) |
+| Active Directory attack and defense topic coverage | [Windows Attacks & Defense](https://academy.hackthebox.com/course/preview/windows-attacks--defense) |
 | Official submission templates | [Hack The Box public templates](https://github.com/hackthebox/public-templates) |
 | Platform scope, content-sharing, and AI restrictions | [Hack The Box Platform Rules](https://help.hackthebox.com/en/articles/12325897-hack-the-box-platform-rules) |
 | Challenge submission requirements | [Challenge Submission Requirements](https://help.hackthebox.com/en/articles/5676859-challenge-submission-requirements) |

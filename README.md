@@ -28,10 +28,10 @@ The entrypoints route to detailed references using progressive disclosure:
 | --- | --- |
 | `core-methodology.md` | Mode selection, difficulty profiles, authorization, evidence, graph edges, and stop conditions. |
 | `machine-playbooks.md` | Easy through Insane machines, Linux, Windows, Active Directory, lateral movement, and completion criteria. |
-| `challenge-playbooks.md` | Web, crypto, reversing, pwn, forensics, OSINT, stego, mobile, hardware, blockchain, AI/ML, coding, miscellaneous, ICS, and game-focused work. |
+| `challenge-playbooks.md` | Web, crypto, reversing, pwn, forensics, OSINT, stego, mobile, hardware, blockchain, AI/ML, coding, miscellaneous, ICS, game-focused work, and category routing. |
 | `sherlock-playbooks.md` | DFIR, SOC, malware analysis, threat hunting, threat intelligence, cloud investigations, timelines, and question ledgers. |
 | `pivoting-and-ssh.md` | ProxyJump, SOCKS, local and remote forwards, multi-hop routing, file transfer, verification, and cleanup. |
-| `ad-and-windows.md` | SMB, LDAP, Kerberos, WinRM, RDP, MSSQL, AD CS, delegation, ACLs, GPOs, secrets, and replication guardrails. |
+| `ad-and-windows.md` | SMB, LDAP, Kerberos, WinRM, RDP, MSSQL, AD CS, delegation, ACLs, GPOs, graph analysis, common AD path families, secrets, and replication guardrails. |
 | `web-application.md` | Web and API mapping, subdomains and virtual hosts, source analysis, Git services, authentication, authorization, injection classes, XPath, XML, uploads, parsers, browser controls, and API testing. |
 | `privilege-escalation.md` | Linux, Windows, service, scheduled-task, credential, container, and kernel-boundary analysis. |
 | `forensics-and-malware.md` | Artifact integrity, Windows and Linux evidence, memory, disk, PCAP, timelines, and isolated malware triage. |

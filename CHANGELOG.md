@@ -2,6 +2,14 @@
 
 All notable changes to this project are documented here.
 
+## [1.2.0] - 2026-08-25
+
+### Added
+
+- Expanded Windows and Active Directory methodology with an attack-surface catalog, common AD path families, graph-analysis guidance, and deeper AD CS triage.
+- Expanded challenge category methodology for reversing, pwn, crypto, forensics, OSINT, stego, mobile, hardware, blockchain, AI/ML, coding, misc, ICS, and game-focused challenges.
+- Official-source note for HTB challenge categories and Academy Windows/AD topic coverage.
+
 ## [1.1.0] - 2026-08-25
 
 ### Added
