@@ -1,6 +1,9 @@
 # Hack The Box Skills for Claude and Codex
 
-![logo](https://academy.hackthebox.com/images/logo.svg)
+[![Validate skills](https://github.com/blue0x1/hackthebox-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/blue0x1/hackthebox-skills/actions/workflows/validate.yml)
+[![Release](https://img.shields.io/github/v/release/blue0x1/hackthebox-skills)](https://github.com/blue0x1/hackthebox-skills/releases)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Skills](https://img.shields.io/badge/skills-Claude%20%2B%20Codex-111827)](skills/)
 
 A practical, safety-first skill pack for authorized lab work across Machines, Challenges, Sherlocks, ProLabs, and Academy-style exercises with Claude and Codex.
 
@@ -176,6 +179,10 @@ This project intentionally excludes machine-specific write-ups, active challenge
 ## Research and Compliance
 
 The methodology was informed by official high-level platform documentation and by the user-supplied nimux installation and command-surface references. The repository does not copy or compile public HTB writeups. Current publication permissions and AI-use restrictions must be checked against the [HTB Platform Rules](https://help.hackthebox.com/en/articles/12325897-hack-the-box-platform-rules) before sharing any lab-specific solution. See `skills/hackthebox-claude/references/source-map.md` for the source map and compliance notes.
+
+## Branding
+
+This project is unofficial and is not endorsed by, affiliated with, or sponsored by Hack The Box. Do not use official HTB marks, logos, screenshots, challenge assets, or platform content in issues, examples, forks, releases, or derivative packages unless you have permission or the applicable rules explicitly allow it.
 
 ## Contributing
 

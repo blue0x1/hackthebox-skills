@@ -75,6 +75,26 @@ def validate_markdown_links(root: Path) -> list[str]:
     return errors
 
 
+def validate_shared_skill_files() -> list[str]:
+    errors: list[str] = []
+    baseline = ROOT / "skills" / SKILLS[0]
+    comparison = ROOT / "skills" / SKILLS[1]
+
+    for relative_path in REQUIRED_FILES:
+        if relative_path == "SKILL.md":
+            continue
+        baseline_path = baseline / relative_path
+        comparison_path = comparison / relative_path
+        if not baseline_path.is_file() or not comparison_path.is_file():
+            continue
+        baseline_text = baseline_path.read_text(encoding="utf-8", errors="replace")
+        comparison_text = comparison_path.read_text(encoding="utf-8", errors="replace")
+        if baseline_text != comparison_text:
+            fail(errors, f"shared skill file differs between packages: {relative_path}")
+
+    return errors
+
+
 def validate_skill(skill_name: str) -> list[str]:
     errors: list[str] = []
     skill_dir = ROOT / "skills" / skill_name
@@ -135,6 +155,7 @@ def validate_skill(skill_name: str) -> list[str]:
 def main() -> int:
     errors: list[str] = []
     errors.extend(validate_markdown_links(ROOT))
+    errors.extend(validate_shared_skill_files())
     for skill_name in SKILLS:
         errors.extend(validate_skill(skill_name))
 
