@@ -2,6 +2,18 @@
 
 All notable changes to this project are documented here.
 
+## [1.0.1] - 2026-08-25
+
+### Added
+
+- README badges for validation, release, license, and supported skill targets.
+- Explicit unofficial branding guidance.
+- Validator checks for shared reference and template drift between Claude and Codex packages.
+
+### Changed
+
+- Removed the external HTB Academy logo hotlink from the README.
+
 ## [1.0.0] - 2026-08-25
 
 ### Added
