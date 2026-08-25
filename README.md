@@ -1,5 +1,7 @@
 # Hack The Box Skills for Claude and Codex
 
+![logo](https://academy.hackthebox.com/images/logo.svg)
+
 A practical, safety-first skill pack for authorized lab work across Machines, Challenges, Sherlocks, ProLabs, and Academy-style exercises with Claude and Codex.
 
 > **Important:** This is an unofficial community project. Hack The Box and related names are trademarks of their respective owners. Use these skills only against HTB-owned or HTB-provided lab targets, or systems for which you have explicit written authorization.
