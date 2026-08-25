@@ -166,6 +166,10 @@ python3 tools/validate_skills.py
 
 The continuous-integration workflow runs the same checks on pushes and pull requests. Validation checks frontmatter, line limits, required resources, placeholder remnants, and common credential or private-key patterns. It does not attempt to scan or exploit any target.
 
+## Contributors
+
+- [blue0x1](https://github.com/blue0x1)
+
 ## License
 
 This repository is released under the MIT License. See `LICENSE`.
