@@ -2,6 +2,13 @@
 
 All notable changes to this project are documented here.
 
+## [1.1.0] - 2026-08-25
+
+### Added
+
+- Expanded web application playbook covering subdomain and virtual-host enumeration, source analysis, Git service workflows, injection families, XPath, XML and XXE, XSS, SSRF, uploads, API, GraphQL, WebSocket, CORS, CSRF, cache, proxy, and dependency triage.
+- Git-backed service methodology for Gitea, GitLab, GitHub Enterprise, Bitbucket Server, exposed `.git` directories, CI/CD files, registries, issues, snippets, releases, and commit history review.
+
 ## [1.0.1] - 2026-08-25
 
 ### Added
