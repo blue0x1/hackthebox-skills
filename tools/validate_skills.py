@@ -45,10 +45,34 @@ SECRET_PATTERNS = (
     re.compile(r"\bgithub_pat_[A-Za-z0-9_]{20,}\b"),
     re.compile(r"\bxox[baprs]-[A-Za-z0-9-]{20,}\b"),
 )
+MARKDOWN_LINK = re.compile(r"(?<!!)\[[^\]]+\]\(([^)]+)\)")
+LOCAL_LINK_PREFIXES = ("http://", "https://", "mailto:", "#")
 
 
 def fail(errors: list[str], message: str) -> None:
     errors.append(message)
+
+
+def link_target_exists(base_dir: Path, target: str) -> bool:
+    path_part = target.split("#", 1)[0].strip()
+    if not path_part or path_part.startswith(LOCAL_LINK_PREFIXES):
+        return True
+    if path_part.startswith("<") and path_part.endswith(">"):
+        path_part = path_part[1:-1]
+    return (base_dir / path_part).exists()
+
+
+def validate_markdown_links(root: Path) -> list[str]:
+    errors: list[str] = []
+    for path in root.rglob("*.md"):
+        if ".git" in path.parts:
+            continue
+        contents = path.read_text(encoding="utf-8", errors="replace")
+        for match in MARKDOWN_LINK.finditer(contents):
+            target = match.group(1)
+            if not link_target_exists(path.parent, target):
+                fail(errors, f"broken local Markdown link in {path.relative_to(root)}: {target}")
+    return errors
 
 
 def validate_skill(skill_name: str) -> list[str]:
@@ -86,6 +110,12 @@ def validate_skill(skill_name: str) -> list[str]:
             if not re.search(r"^description:\s*\S+", frontmatter, re.MULTILINE):
                 fail(errors, f"{skill_name}: frontmatter is missing description")
 
+    for relative_path in REQUIRED_FILES:
+        if relative_path == "SKILL.md":
+            continue
+        if relative_path not in text:
+            fail(errors, f"{skill_name}: SKILL.md does not mention required resource {relative_path}")
+
     all_files = [path for path in skill_dir.rglob("*") if path.is_file()]
     for path in all_files:
         contents = path.read_text(encoding="utf-8", errors="replace")
@@ -104,6 +134,7 @@ def validate_skill(skill_name: str) -> list[str]:
 
 def main() -> int:
     errors: list[str] = []
+    errors.extend(validate_markdown_links(ROOT))
     for skill_name in SKILLS:
         errors.extend(validate_skill(skill_name))
 

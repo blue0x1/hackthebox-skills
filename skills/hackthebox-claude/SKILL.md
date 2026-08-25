@@ -26,6 +26,7 @@ Load only the references relevant to the current mode. Keep this entrypoint in c
 | Situation | Read next |
 | --- | --- |
 | Any case or mode selection | `references/core-methodology.md` |
+| Service discovery or exposed protocol triage | `references/service-enumeration.md` |
 | Machine, Easy through Insane | `references/machine-playbooks.md` |
 | Web application or API | `references/web-application.md` |
 | Linux, Windows, containers, or post-foothold work | `references/privilege-escalation.md` |
@@ -37,7 +38,7 @@ Load only the references relevant to the current mode. Keep this entrypoint in c
 | Public-resource compliance or learning progression | `references/source-map.md` and `references/study-roadmap.md` |
 | Reproducible commands and failures | `references/tooling-and-output.md` |
 | Proof-of-concept review | `references/exploit-review.md` |
-| Final output | `templates/machine-report.md`, `templates/challenge-report.md`, `templates/sherlock-report.md`, or `templates/prolab-report.md`; use `templates/hypothesis-log.md` and `templates/command-log.md` throughout |
+| Working notes and final output | `templates/engagement-notes.md`, `templates/htb-report.md`, `templates/machine-report.md`, `templates/challenge-report.md`, `templates/sherlock-report.md`, or `templates/prolab-report.md`; use `templates/hypothesis-log.md` and `templates/command-log.md` throughout |
 
 ## Operating Workflow
 

@@ -134,6 +134,31 @@ htb/<target>/, and stop before any scope expansion or unreviewed payload.
 
 Do not provide a target address, credential, flag, or private artifact in a public issue. Use placeholders in examples and redact sensitive values in reports.
 
+## Usage Examples
+
+Use sanitized prompts that state authorization, scope, objective, and stop conditions:
+
+```text
+I have explicit authorization to work on the retired HTB machine <MACHINE_NAME>
+at <TARGET>. Use the Hack The Box Codex skill, save evidence under
+htb/<machine-name>/, start with conservative enumeration, and stop before any
+credential extraction, pivoting, or unreviewed payload execution.
+```
+
+```text
+I have explicit authorization to analyze the HTB Sherlock package in
+./cases/<CASE_NAME>/. Use the Hack The Box skill in Sherlock mode, hash the
+original files, work only on copies, build a question ledger, and do not run
+any suspicious executable artifacts.
+```
+
+```text
+I have explicit authorization to review this challenge source package. Use the
+Hack The Box skill in Challenge mode, inspect local files first, keep solver
+scripts under scripts/, capture outputs under evidence/, and avoid publishing
+flags or challenge-specific solutions.
+```
+
 ## Safety Model
 
 The skills enforce a narrow, evidence-led workflow:
