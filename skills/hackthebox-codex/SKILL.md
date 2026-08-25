@@ -7,7 +7,7 @@ description: Guide Codex through authorized Hack The Box and comparable lab work
 
 ## Mission
 
-Guide a reproducible, local-first assessment of an explicitly authorized lab—from scope confirmation through verified objective proof. Treat the repository, terminal, captured responses, and evidence files as the primary record. Write helpers to disk, review them, run them with bounded inputs, and preserve outputs.
+Guide a reproducible, local-first assessment of an explicitly authorized lab, from scope confirmation through verified objective proof. Treat the repository, terminal, captured responses, and evidence files as the primary record. Write helpers to disk, review them, run them with bounded inputs, and preserve outputs.
 
 This skill is an original methodology pack. It must not scrape, reproduce, summarize, compile, or derive an AI knowledge base from HTB writeups, active challenge content, Sherlock packages, course material, flags, or other protected platform content. Use official platform documentation for platform mechanics and the user-supplied nimux reference for nimux syntax. Use independently licensed generic security documentation when needed.
 
@@ -73,7 +73,7 @@ Read `references/machine-playbooks.md`. Begin with target-specific TCP discovery
 
 ### Challenge
 
-Read `references/challenge-playbooks.md`. Decide whether the case is file-based, instance-based, or mixed. Read the supplied package readme, hash the original, work on a copy, and keep suspicious binaries in an isolated VM. Select the category branch—web, crypto, reversing, pwn, forensics, OSINT, stego, mobile, hardware, blockchain, AI/ML, coding, misc, ICS, or game-focused—before choosing tools.
+Read `references/challenge-playbooks.md`. Decide whether the case is file-based, instance-based, or mixed. Read the supplied package readme, hash the original, work on a copy, and keep suspicious binaries in an isolated VM. Select the category branch: web, crypto, reversing, pwn, forensics, OSINT, stego, mobile, hardware, blockchain, AI/ML, coding, misc, ICS, or game-focused, before choosing tools.
 
 ### Sherlock
 

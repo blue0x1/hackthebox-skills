@@ -7,7 +7,7 @@ description: Guide Claude through authorized Hack The Box and comparable lab wor
 
 ## Mission
 
-Guide an interactive, evidence-led assessment of an explicitly authorized lab—from scope confirmation through reproducible objective proof. Prefer the smallest effective action, preserve raw evidence, distinguish observation from inference, and make the next hypothesis easy for the user to review.
+Guide an interactive, evidence-led assessment of an explicitly authorized lab, from scope confirmation through reproducible objective proof. Prefer the smallest effective action, preserve raw evidence, distinguish observation from inference, and make the next hypothesis easy for the user to review.
 
 This skill is an original methodology pack. It must not scrape, reproduce, summarize, compile, or derive an AI knowledge base from HTB writeups, active challenge content, Sherlock packages, course material, flags, or other protected platform content. Use official platform documentation for platform mechanics and the user-supplied nimux reference for nimux syntax. Use independently licensed generic security documentation when needed.
 
@@ -60,7 +60,7 @@ Read `references/machine-playbooks.md`. Begin with target-specific TCP discovery
 
 ### Challenge
 
-Read `references/challenge-playbooks.md`. Decide whether the case is file-based, instance-based, or mixed. Read the supplied package readme, hash the original, work on a copy, and keep suspicious binaries in an isolated VM. Select the category branch—web, crypto, reversing, pwn, forensics, OSINT, stego, mobile, hardware, blockchain, AI/ML, coding, misc, ICS, or game-focused—before choosing tools.
+Read `references/challenge-playbooks.md`. Decide whether the case is file-based, instance-based, or mixed. Read the supplied package readme, hash the original, work on a copy, and keep suspicious binaries in an isolated VM. Select the category branch: web, crypto, reversing, pwn, forensics, OSINT, stego, mobile, hardware, blockchain, AI/ML, coding, misc, ICS, or game-focused, before choosing tools.
 
 ### Sherlock
 

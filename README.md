@@ -15,7 +15,7 @@ The repository contains two complementary skills:
 | `hackthebox-claude` | Interactive work with Claude | Conversational checkpoints, hypothesis tracking, careful scope confirmation, and evidence-backed explanations. |
 | `hackthebox-codex` | Terminal and code-centric work with Codex | Local-first artifact analysis, reviewable scripts, bounded execution, captured output, and reproducible changes. |
 
-Both skills use the same original playbooks for machine methodology, web applications, privilege boundaries, Windows and Active Directory, challenges, Sherlock investigations, forensics, malware analysis, SSH pivoting, and nimux integration. The platform-specific instructions are intentionally separate so each agent can follow the conventions of its host environment without losing the shared safety model. The package is organized for progressive disclosure—load the entrypoint first, then read only the reference needed for the current case.
+Both skills use the same original playbooks for machine methodology, web applications, privilege boundaries, Windows and Active Directory, challenges, Sherlock investigations, forensics, malware analysis, SSH pivoting, and nimux integration. The platform-specific instructions are intentionally separate so each agent can follow the conventions of its host environment without losing the shared safety model. The package is organized for progressive disclosure: load the entrypoint first, then read only the reference needed for the current case.
 
 ## Reference Catalog
 
@@ -34,7 +34,7 @@ The entrypoints route to detailed references using progressive disclosure:
 | `forensics-and-malware.md` | Artifact integrity, Windows and Linux evidence, memory, disk, PCAP, timelines, and isolated malware triage. |
 | `exploit-review.md` | Safe review and adaptation of supplied or public proof-of-concept code. |
 | `tooling-and-output.md` | Bounded commands, structured output, naming, hashing, failures, and evidence bundles. |
-| `nimux-usage.md` and `nimux-command-surface.txt` | User-supplied nimux installation paths—release binary, Debian package, Docker, BlackArch, Arch AUR, and Nimble—plus version checks and command families. |
+| `nimux-usage.md` and `nimux-command-surface.txt` | User-supplied nimux installation paths: release binary, Debian package, Docker, BlackArch, Arch AUR, and Nimble, plus version checks and command families. |
 
 ## Repository Layout
 
@@ -61,7 +61,66 @@ The entrypoints route to detailed references using progressive disclosure:
 
 ## Installation and Use
 
-Clone or download this repository, then make the skill directory available to the client’s skill loader. If your environment supports project instructions, keep `CLAUDE.md` for Claude-oriented work and `AGENTS.md` for Codex-oriented work at the project root. If your client loads skills from a dedicated directory, copy the corresponding `skills/hackthebox-claude` or `skills/hackthebox-codex` directory there.
+Clone the repository:
+
+```bash
+git clone https://github.com/blue0x1/hackthebox-skills.git
+cd hackthebox-skills
+```
+
+Validate the package before installing:
+
+```bash
+python3 tools/validate_skills.py
+```
+
+### Install for Codex
+
+Copy the Codex skill into your Codex skills directory:
+
+```bash
+mkdir -p ~/.codex/skills
+cp -R skills/hackthebox-codex ~/.codex/skills/
+```
+
+If you want Codex to use the project-level safety instructions automatically, keep `AGENTS.md` in the root of the workspace where you run Codex. For a different workspace, copy it there:
+
+```bash
+cp AGENTS.md /path/to/your/workspace/
+```
+
+Then start Codex from that workspace and ask it to use the Hack The Box skill for authorized lab work.
+
+### Install for Claude
+
+Copy the Claude skill into your Claude skills directory:
+
+```bash
+mkdir -p ~/.claude/skills
+cp -R skills/hackthebox-claude ~/.claude/skills/
+```
+
+If you want Claude to use the project-level safety instructions automatically, keep `CLAUDE.md` in the root of the workspace where you run Claude. For a different workspace, copy it there:
+
+```bash
+cp CLAUDE.md /path/to/your/workspace/
+```
+
+Then restart or reload Claude so it can discover the new skill.
+
+### Manual Installation
+
+If your client uses a custom skill directory, copy only the matching skill folder:
+
+```bash
+# Codex-oriented workflow
+cp -R skills/hackthebox-codex /path/to/client/skills/
+
+# Claude-oriented workflow
+cp -R skills/hackthebox-claude /path/to/client/skills/
+```
+
+Each installed skill directory must include `SKILL.md`, `references/`, and `templates/`.
 
 Start each lab by confirming the target, scope, challenge or machine name, objective, and constraints. The skills are designed to guide the workflow; they do not replace the HTB VPN, target access, or tools installed in the user’s environment.
 
