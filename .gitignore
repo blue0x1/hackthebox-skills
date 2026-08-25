@@ -1,0 +1,39 @@
+# Lab evidence and target-specific data
+htb/
+loot/
+scans/
+reports/
+*.nmap
+*.gnmap
+*.xml
+*.pcap
+*.pcapng
+user.txt
+root.txt
+flag.txt
+flags/
+
+# Credentials, VPN configuration, and secrets
+.env
+.env.*
+*.ovpn
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa
+id_ed25519
+*.kdbx
+
+# Python and operating-system artifacts
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.DS_Store
+Thumbs.db
+
+# Editor and local configuration
+.vscode/
+.idea/
+*.swp
